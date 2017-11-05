@@ -235,7 +235,7 @@ void flushASCII(std::fstream &str, int elements_per_line, const PiercedVector<da
             }
             flushASCII(str, *dataItr);
             k++;
-            dataItr++;
+            ++dataItr;
         }
 
         i++;
