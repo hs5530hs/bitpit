@@ -2369,7 +2369,7 @@ namespace bitpit {
      * \return Is octant ghost?
      */
     bool
-    ParaTree::getIsGhost(const Octant oct) const {
+    ParaTree::getIsGhost(const Octant &oct) const {
         return oct.m_info[16];
     };
 

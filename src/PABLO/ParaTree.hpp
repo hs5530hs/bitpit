@@ -409,7 +409,7 @@ namespace bitpit {
         const Octant* getGhostOctant(uint32_t idx) const;
         uint32_t 		getIdx(const Octant &oct) const;
         bool 			getIsGhost(const Octant* oct) const;
-        bool 			getIsGhost(const Octant oct) const;
+        bool 			getIsGhost(const Octant &oct) const;
         const LoadBalanceRanges & getLoadBalanceRanges() const;
 
         // =================================================================================== //
