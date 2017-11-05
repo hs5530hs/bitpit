@@ -2342,7 +2342,7 @@ namespace bitpit {
      * \return Local index of octant.
      */
     uint32_t
-    ParaTree::getIdx(const Octant oct) const {
+    ParaTree::getIdx(const Octant &oct) const {
 #if BITPIT_ENABLE_MPI==1
         if (getIsGhost(oct)){
             return m_octree.findGhostMorton(oct.computeMorton());
