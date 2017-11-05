@@ -2599,7 +2599,7 @@ namespace bitpit {
      * \return Pointer to octant owner of target point (=NULL if point is outside of the domain).
      */
     Octant*
-    ParaTree::getPointOwner(dvector point){
+    ParaTree::getPointOwner(const dvector &point){
         uint32_t idx = getPointOwnerIdx(point);
         if(idx < numeric_limits<uint32_t>::max())
             return &m_octree.m_octants[idx];
@@ -2613,7 +2613,7 @@ namespace bitpit {
      * \return Pointer to octant owner of target point (=NULL if point is outside of the ghosted domain).
      */
     Octant*
-    ParaTree::getPointOwner(dvector point, bool & isghost){
+    ParaTree::getPointOwner(const dvector &point, bool & isghost){
         uint32_t idx = getPointOwnerIdx(point,isghost);
         if(idx < numeric_limits<uint32_t>::max())
             if(isghost)
@@ -2630,7 +2630,7 @@ namespace bitpit {
      * \return Pointer to octant owner of target point (=NULL if point is outside of the domain).
      */
     Octant*
-    ParaTree::getPointOwner(darray3 point){
+    ParaTree::getPointOwner(const darray3 &point){
         uint32_t idx = getPointOwnerIdx(point);
         if(idx < numeric_limits<uint32_t>::max())
             return &m_octree.m_octants[idx];
@@ -2644,7 +2644,7 @@ namespace bitpit {
      * \return Pointer to octant owner of target point (=NULL if point is outside of the ghostd domain).
      */
     Octant*
-    ParaTree::getPointOwner(darray3 point, bool & isghost){
+    ParaTree::getPointOwner(const darray3 &point, bool & isghost){
         uint32_t idx = getPointOwnerIdx(point,isghost);
         if(idx < numeric_limits<uint32_t>::max())
             if(isghost)
@@ -2660,7 +2660,7 @@ namespace bitpit {
      * \return Index of octant owner of target point (max uint32_t representable if point outside of the domain).
      */
     uint32_t
-    ParaTree::getPointOwnerIdx(darray3 point) const {
+    ParaTree::getPointOwnerIdx(const darray3 &point) const {
         return getPointOwnerIdx(point.data());
     }
 
@@ -2670,7 +2670,7 @@ namespace bitpit {
      * \return Index of octant owner of target point (max uint32_t representable if point outside of the ghosted domain).
      */
     uint32_t
-    ParaTree::getPointOwnerIdx(darray3 point, bool & isghost) const {
+    ParaTree::getPointOwnerIdx(const darray3 &point, bool & isghost) const {
         return getPointOwnerIdx(point.data(),isghost);
     }
 
@@ -2679,7 +2679,7 @@ namespace bitpit {
      * \return Index of octant owner of target point (max uint32_t representable if point outside of the domain).
      */
     uint32_t
-    ParaTree::getPointOwnerIdx(dvector point) const {
+    ParaTree::getPointOwnerIdx(const dvector &point) const {
         assert(point.size() >= 3);
         return getPointOwnerIdx(point.data());
     };
@@ -2690,7 +2690,7 @@ namespace bitpit {
      * \return Index of octant owner of target point (max uint32_t representable if point outside of the ghosted domain).
      */
     uint32_t
-    ParaTree::getPointOwnerIdx(dvector point, bool & isghost) const {
+    ParaTree::getPointOwnerIdx(const dvector &point, bool & isghost) const {
         assert(point.size() >= 3);
         return getPointOwnerIdx(point.data(),isghost);
     };
